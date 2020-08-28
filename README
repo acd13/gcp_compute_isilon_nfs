@@ -1,0 +1,17 @@
+This is a script to demonstrate how compute instances with NFS mount can be created for on-demand needs.
+
+In this script, the Dell Technologies PowerScale scale-out NFS storage has been already configured for Google Cloud Platform. In it's place any other NFS server with an export already configured would work.
+
+A Storage bucket with the startup script in it is assumed
+
+This script can be useful for anyone learning some GCP concepts.
+
+This script is NOT meant to be run in PRODUCTION environments.
+
+Usage
+========
+./create-compute.sh
+
+It will ask two choices - a) setupenv - use this to setup the Instance Template and the Instance Group and b) setupcompute - use this option to create compute instances by picking your template.
+
+The script offers options to delete templates and instance groups.
