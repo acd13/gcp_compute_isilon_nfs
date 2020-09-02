@@ -18,6 +18,12 @@ else
 	exit 0
 fi
 
+printf "\nSetting region = us-east4, zone = us-east4-c, project = my-isilon-project\n"
+printf "\nIf you need to change these, modify the values in the script\n"
+
+gcloud config set compute/zone us-east4-c
+gcloud config set compute/region us-east4
+gcloud config set project my-isilon-project
 
 gcloud config list
 printf "\nAbove is your current config based on how you setup the gcloud: \n"
@@ -182,7 +188,7 @@ read ANS
 
 		#Not doing the autoscaling for now
 		#gcloud beta compute --project $myproject instance-groups managed set-autoscaling $myminame --zone $myzone --cool-down-period "60" --max-num-replicas $maxinst --min-num-replicas $mininst --target-cpu-utilization "0.01" --mode "on"
-		printf "User $domainid, below are your Compute Instances, please terminate the Managed Instance Group when no longer needed to AVOID COSTS!!! \n"
+		printf "\n\nUser $domainid, below are your Compute Instances, please terminate the Managed Instance Group when no longer needed to AVOID COSTS!!! \n"
 		gcloud compute instances list
 		printf "\n\n\nGoodbye!!\n"
 
