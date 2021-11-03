@@ -116,11 +116,12 @@ read ANS
 			myimage=centos-7-v20200811
 
 			#Add a section on gathering VPC and subnet
-			printf "\nBelow is a list of all networks (VPC) and subnets you have, pick the one we should use"
-			gcloud compute networks subnets list
-			printf "\nEnter network (3rd column) name: \n"
+			printf "\nBelow is a list of all networks (VPC) and subnets you have in us-east4"
+			#gcloud compute networks subnets list
+			gcloud compute networks subnets list --format=table"(NAME,REGION,NETWORK,RANGE)" --regions=us-east4
+			printf "\nEnter network (3rd column) name. Type my-10-vpc for demos: \n"
 			read vpcname
-			printf "\nEnter subnet (1st column) name: \n"
+			printf "\nEnter subnet (1st column) name. Type my-10-126-1-subnet for demos: \n"
 			read mysubnet
 			printf "\nWe got these values, if not correct, ctrl-c: \n $vpcname \n $mysubnet \n"
 			sleep 5
